@@ -1,0 +1,1 @@
+/usr/bin/gcc  -g /source/main.c  -o /source/main -lm

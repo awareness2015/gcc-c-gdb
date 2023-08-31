@@ -1,0 +1,41 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/source/${fileBasenameNoExtension}",
+            "console": "integratedTerminal",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "/source",
+            "environment": [],
+            "sourceFileMap": {
+                "/source": "${workspaceFolder}"
+            },
+            "pipeTransport": {
+                "debuggerPath": "/usr/bin/gdb",
+                "pipeProgram": "/usr/local/bin/sshpass",
+                "pipeArgs": [
+                    "-p",
+                    "root",
+                    "ssh",
+                    "root@localhost",
+                    "-p",
+                    "2222"
+                ],
+                "pipeCwd": ""
+            },
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build-in-container"
+        }
+    ]
+}
